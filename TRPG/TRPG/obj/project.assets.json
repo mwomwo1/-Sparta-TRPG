@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/a23/development/unity/TRPG/TRPG/TRPG.csproj",
+      "projectUniqueName": "/Users/a23/Downloads/-Sparta-TRPG/TRPG/TRPG/TRPG.csproj",
       "projectName": "TRPG",
-      "projectPath": "/Users/a23/development/unity/TRPG/TRPG/TRPG.csproj",
+      "projectPath": "/Users/a23/Downloads/-Sparta-TRPG/TRPG/TRPG/TRPG.csproj",
       "packagesPath": "/Users/a23/.nuget/packages/",
-      "outputPath": "/Users/a23/development/unity/TRPG/TRPG/obj/",
+      "outputPath": "/Users/a23/Downloads/-Sparta-TRPG/TRPG/TRPG/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/a23/.nuget/NuGet/NuGet.Config"

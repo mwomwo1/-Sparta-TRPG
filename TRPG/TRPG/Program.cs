@@ -53,8 +53,12 @@ namespace TRPG
                 Console.Clear();
                 Console.WriteLine("게임 시작 화면");
                 Console.WriteLine();
-                Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
-                Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.");
+                Console.WriteLine("== 소환사의 협곡에 오신 여러분 환영합니다 ==");
+                Console.WriteLine();
+                Console.WriteLine("-");
+                Console.WriteLine("이곳은 시작 마을입니다");
+                Console.WriteLine("던전에 떠날 채비를 하십시오");
+                Console.WriteLine("-");
                 Console.WriteLine();
                 Console.WriteLine("1. 상태 보기");
                 Console.WriteLine("2. 인벤토리");
@@ -63,7 +67,7 @@ namespace TRPG
                 Console.WriteLine("5. 휴식");
                 Console.WriteLine("6. 종료");
                 Console.WriteLine();
-                Console.WriteLine("원하시는 행동을 입력해주세요");
+                Console.WriteLine("---원하시는 행동을 입력하십시오---");
 
                 string input = Console.ReadLine();
                 switch (input)
@@ -81,7 +85,7 @@ namespace TRPG
                     case "6": // 추가된 옵션
                         return STARTSELECT.END; // 종료 옵션
                     default:
-                        Console.WriteLine("잘못된 입력입니다, 다시 입력해주세요.");
+                        Console.WriteLine("잘못된 입력입니다, 다시 입력하십시오");
                         break;
                 }
             }
@@ -111,7 +115,7 @@ namespace TRPG
             }
         }
 
-        
+
 
         // 던전 아이템 목록
         static List<Item> dungeonInventory = new List<Item>
@@ -123,15 +127,20 @@ namespace TRPG
         static void EnterDungeon(Player player)
         {
             Console.Clear();
-            Console.WriteLine("**던전입장**");
-            Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.");
+            Console.WriteLine("== 던전 입구 ==");
+            Console.WriteLine();
+            Console.WriteLine("-");
+            Console.WriteLine("이곳은 던전 입구 입니다");
+            Console.WriteLine("당신의 눈 앞에는 세 갈레의 길이 펼쳐져 있습니다");
+            Console.WriteLine("어느 곳으로 향하시겠습니까 ?");
+            Console.WriteLine("-");
             Console.WriteLine();
             Console.WriteLine("1. 쉬운 던전     | 방어력 5 이상 권장");
             Console.WriteLine("2. 일반 던전     | 방어력 11 이상 권장");
             Console.WriteLine("3. 어려운 던전    | 방어력 17 이상 권장");
-            Console.WriteLine("0. 나가기");
+            Console.WriteLine("0. 돌아가기");
             Console.WriteLine();
-            Console.WriteLine("원하시는 행동을 입력해주세요.");
+            Console.WriteLine("원하시는 행동을 입력하세요");
 
             string input = Console.ReadLine();
 
@@ -147,10 +156,18 @@ namespace TRPG
                     StartDungeon(player, DungeonDifficulty.Hard);
                     break;
                 case "0":
-                    Console.WriteLine("던전입장을 취소합니다.");
+                    Console.Clear();
+                    Console.WriteLine("== 던전입장을 취소했습니다 ==");
+                    Console.WriteLine();
+                    Console.WriteLine(".");
+                    Console.WriteLine(".");
+                    Console.WriteLine(".");
+                    Console.WriteLine("누군가 당신을 향해 겁쟁이라 비웃었습니다");
+
+                    Console.ReadLine();
                     break;
                 default:
-                    Console.WriteLine("잘못된 입력입니다, 다시 입력해주세요.");
+                    Console.WriteLine("잘못된 입력입니다, 다시 입력해주세요");
                     break;
             }
         }
@@ -161,32 +178,41 @@ namespace TRPG
             int playerDefense = player.CalculateTotalDefense();
             int recommendedDefense = RecommendedDefense[difficulty];
 
-           
+
             Console.WriteLine($"**{difficulty.ToString()} 던전**");
             Console.WriteLine($"권장 방어력: {recommendedDefense}");
             Console.WriteLine();
 
             if (playerDefense < recommendedDefense)
             {
-                Console.WriteLine("<<현재 방어력이 권장 방어력보다 낮습니다>>");
-                Console.WriteLine(" 던전을 수행할 수 있는 충분한 능력이 없습니다");
-                Console.WriteLine(".");
-                Console.WriteLine(".");
-                Console.WriteLine(".");
-                Console.WriteLine("던전 입장에 실패했습니다.");
+                Console.WriteLine("== 방어력이 권장 방어력보다 낮습니다 ==");
                 Console.WriteLine();
-                Console.WriteLine("다시 플레이하시려면 아무 곳이나 누르세요.");
+                Console.WriteLine("-");
+                Console.WriteLine(" 던전을 수행할 수 있는 충분한 능력이 없습니다");
+                Console.WriteLine("-");
+                Console.WriteLine();
+                Console.WriteLine(".");
+                Console.WriteLine(".");
+                Console.WriteLine(".");
+                Console.WriteLine("== 던전 입장에 실패했습니다 ==");
+                Console.WriteLine("-");
+                Console.WriteLine("돌아가려면 아무 키나 입력하세요.");
+                Console.WriteLine("-");
                 player.Health -= 50; // 체력 감소
                 Console.ReadLine();
                 return;
             }
-            Console.WriteLine("던전에 입장합니다. ");
-            Console.WriteLine(".");
-            Console.WriteLine(".");
-            Console.WriteLine(".");
-            Console.WriteLine(".");
-            Console.WriteLine(".");
-            Console.WriteLine("아무 곳이나 클릭하세");
+            Console.WriteLine("== 던전에 입장합니다 ==");
+            Console.WriteLine();
+            Console.WriteLine("-");
+            Console.WriteLine("음습한 기운이 온몸을 휘감습니다");
+            Console.WriteLine("당신은 두렵지만 앞으로 나아갑니다");
+            Console.WriteLine("-");
+            Console.WriteLine();
+            Console.WriteLine("-");
+            Console.WriteLine("탐험 결과를 확인하려면 아무 키나 입력하세요");
+            Console.WriteLine("-");
+            Console.WriteLine();
             Console.ReadLine();
 
             Random rand = new Random();
@@ -195,14 +221,18 @@ namespace TRPG
             int additionalReward = (int)(baseReward * ((float)rand.Next(1, additionalRewardPercentage + 1) / 100));
             int totalReward = baseReward + additionalReward;
 
-            Console.WriteLine($"던전을 클리어하였습니다! 보상으로 {totalReward}G를 획득하였습니다.");
+            Console.Clear();
+            Console.WriteLine("== 던전을 클리어하였습니다! ==");
+            Console.WriteLine("-");
+            Console.WriteLine($"보상으로 {totalReward}G를 획득하였습니다.");
+            Console.WriteLine("-");
             Console.WriteLine(".");
             Console.WriteLine(".");
-            Console.WriteLine(".");
-            Console.WriteLine("돌아가려면 아무 것이나 입력");
+            Console.WriteLine("돌아가려면 아무 버튼이나 입력하세요");
             Console.ReadLine();
             int damage = rand.Next(20, 36) + (playerDefense - recommendedDefense); // 기본 체력 감소량 계산
             player.Health -= damage;
+            player.Gold += totalReward;
             return;
         }
 
@@ -234,7 +264,7 @@ namespace TRPG
         static void Rest(Player player)
         {
             Console.Clear();
-            Console.WriteLine("**휴식**");
+            Console.WriteLine("== 휴식 ==");
             Console.WriteLine("휴식을 선택하면 500G으로 체력을 회복합니다.");
             Console.WriteLine();
             Console.WriteLine($"현재 체력: {player.Health} / {Player.MaxHealth}");
@@ -407,7 +437,7 @@ namespace TRPG
                         break;
                 }
             }
-            
+
         }
 
         // 플레이어 클래스
@@ -429,25 +459,31 @@ namespace TRPG
             public void DisplayStatus()
             {
                 Console.Clear();
-                Console.WriteLine("상태 보기");
+                Console.WriteLine("== 상태 보기 =");
+                Console.WriteLine();
+                Console.WriteLine("-");
                 Console.WriteLine("캐릭터의 정보가 표시됩니다.");
+                Console.WriteLine("-");
                 Console.WriteLine();
                 Console.WriteLine($"체력: {Health} / {MaxHealth}");
                 Console.WriteLine($"Gold : {Gold} G");
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine("뒤로 돌아가시려면 아무버튼이나 누르세요.");
+                Console.WriteLine("뒤로 돌아가시려면 아무 버튼이 입력하세요");
                 string input = Console.ReadLine();
-                
-                
+
+
             }
 
             // 인벤토리 표시 메서드
             public void DisplayInventory()
             {
                 Console.Clear();
-                Console.WriteLine("인벤토리 - 장착 관리");
+                Console.WriteLine("== 인벤토리 ==");
+                Console.WriteLine();
+                Console.WriteLine("-");
                 Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
+                Console.WriteLine("-");
                 Console.WriteLine();
                 Console.WriteLine("[아이템 목록]");
                 for (int i = 0; i < Inventory.Count; i++)
@@ -456,7 +492,7 @@ namespace TRPG
                 }
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine("뒤로 돌아가시려면 아무버튼이나 누르세요.");
+                Console.WriteLine("뒤로 돌아가시려면 아무버튼이나 입력하세요");
                 string input = Console.ReadLine();
             }
 
