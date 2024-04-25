@@ -1,0 +1,15 @@
+/Users/a23/development/unity/TRPG/TRPG/bin/Debug/net6.0/TRPG
+/Users/a23/development/unity/TRPG/TRPG/bin/Debug/net6.0/TRPG.deps.json
+/Users/a23/development/unity/TRPG/TRPG/bin/Debug/net6.0/TRPG.runtimeconfig.json
+/Users/a23/development/unity/TRPG/TRPG/bin/Debug/net6.0/TRPG.dll
+/Users/a23/development/unity/TRPG/TRPG/bin/Debug/net6.0/TRPG.pdb
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.csproj.AssemblyReference.cache
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.GeneratedMSBuildEditorConfig.editorconfig
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.AssemblyInfoInputs.cache
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.AssemblyInfo.cs
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.csproj.CoreCompileInputs.cache
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.dll
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/refint/TRPG.dll
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.pdb
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/TRPG.genruntimeconfig.cache
+/Users/a23/development/unity/TRPG/TRPG/obj/Debug/net6.0/ref/TRPG.dll
